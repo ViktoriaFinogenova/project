@@ -1,7 +1,7 @@
 
 let numberOfFilmsStr = "";
 
-while (numberOfFilmsStr == '') {
+while (numberOfFilmsStr == '' || numberOfFilmsStr === null) {
     numberOfFilmsStr = prompt('Сколько фильмов вы уже посмотрели ?', '0');
 }
 
@@ -32,10 +32,11 @@ console.log(personalMovieDB);
 for (let i = 0; i < numberOfFilms; i++) {
     let lastFilm = '';
     let scoreFilm = '';
-        while (lastFilm === '' || scoreFilm === '' || lastFilm.length > 50) {
+        while (lastFilm === '' || scoreFilm === '' || lastFilm.length > 50 || lastFilm === null || scoreFilm === null) {
             lastFilm = prompt('Один из послдених просмотренных фильмов', '');
             scoreFilm = prompt('На сколько оцените его?', '');
-            if (lastFilm !== '' || scoreFilm !== '' || lastFilm.length > 50) {
+            if (lastFilm !== '' && scoreFilm !== '' && lastFilm.length < 50 &&
+                 lastFilm !== null && scoreFilm !== null) {
                 personalMovieDB.movies[lastFilm] = scoreFilm;
             }
             

@@ -17,15 +17,24 @@ const personalMovieDB = {
         }
     },
     writeYourGenres: function () {
-        for (let i = 1; i < 4; i++) {
-            this.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`, '');
-            if (this.genres[i - 1] === null) i--;
+        for (let i = 1; i <=3; i++) {
+            let genre = prompt(`Ваш любимый жанр под номером ${i}`);
+
+             if (genre === null || genre === '') {
+              console.log('Вы ввели некорректные данные или не ввели их вовсе');
+              i--;
+            } else {
+                personalMovieDB.genres[i - 1] = genre;
+            }
+            this.genres.forEach(function(item, i)
+            {
+                console.log(`Любимый жанр ${i + 1} - это ${item}`);
+            });
         }
-        this.genres.forEach(function(item, i, arr)
-        {
-            console.log(`Любимый жанр #${i+1} - это ${item}`);
-        });
+        
     },
+     
+    
     rememberMyFilms: function () {
         for (let i = 0; i < this.count; i++) {
             let lastFilm = '';

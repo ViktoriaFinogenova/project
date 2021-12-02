@@ -1,27 +1,30 @@
 "use strict";
 
-const str = "teSt";
-const arr = [1, 2, 4];
+let str = "some";
+let strObj = new String(str);
 
-console.log(str.toUpperCase());
-console.log(str.toLowerCase());
-console.log(str);
+console.log(typeof(str));
+console.log(typeof(strObj));
 
-const fruit = "Some fruit";
+console.dir([1,2,3]);
 
-console.log(fruit.indexOf("fruit"));
+const solder = {
+    health: 400,
+    armor: 100,
+    sayHello: function () {
+        console.log("Hello");
+    }
+};
 
-const logg = "Hello world";
+const john =Object.create(solder);
 
-//console.log(logg.slice(6, 11));
+// const john = {
+//     health:100
+// };
 
-//console.log(logg.substring(6, 11));
+// john.__proto__ = solder;
 
-console.log(logg.substr(6, 5));
+Object.setPrototypeOf(john, solder);
 
-const num = 12.2;
-console.log(Math.round(num));
-
-const test = "12.2px";
-console.log(parseInt(test));
-console.log(parseFloat(test));
+// console.log(john.armor);
+john.sayHello();
